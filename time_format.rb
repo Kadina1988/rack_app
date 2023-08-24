@@ -8,7 +8,7 @@ class TimeFormat
              'minute' => '%M',
              'second' => '%S' }.freeze
 
-  attr_reader :invalid_parameters, :correct_parameters
+  # attr_reader :invalid_parameters, :correct_parameters
 
   def initialize(params)
     @params = params.split(',')
@@ -34,5 +34,9 @@ class TimeFormat
       date = @correct_parameters.join('-')
       Time.now.strftime(date)
     end
+  end
+
+  def success?
+    @invalid_parameters.empty?
   end
 end

@@ -19,7 +19,7 @@ class App
   private
 
   def status
-    if @params.nil? || @format.invalid_parameters.any? || @format.correct_parameters.empty?
+    if @params.nil? || @format.success?
       400
     else
       200
